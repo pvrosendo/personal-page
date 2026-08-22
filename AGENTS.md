@@ -40,4 +40,9 @@
 
 - There are no tests or CI workflows configured. Do not claim a feature is complete without running the relevant `pnpm check`, `pnpm lint`, and `pnpm build` commands, plus manual responsive/locale/theme checks for UI changes.
 - TypeScript is strict about unused locals/parameters, emits no files, and uses `erasableSyntaxOnly`; formatting is Biome (2 spaces, single quotes in JS/TS, double quotes in JSX, no semicolons, trailing commas), and linting is Oxlint over `src`.
-- Architectural and UX decisions are recorded in `docs/adr/`; domain terms and layout vocabulary are recorded in `docs/glossary.md`.
+
+## Documentation Workflow
+
+- Architectural, UX, visual, content-model, and localization decisions made during implementation must be recorded in `docs/adr/` in the same change; update an existing ADR when the decision evolves instead of creating redundant documentation.
+- Add or update terms in `docs/glossary.md` when a decision introduces project-specific domain or layout vocabulary.
+- Documentation is part of the implementation, not an optional follow-up: an agent must update the relevant ADR/glossary before reporting the change complete.
