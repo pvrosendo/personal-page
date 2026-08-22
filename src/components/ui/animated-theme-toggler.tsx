@@ -22,13 +22,12 @@ export function AnimatedThemeToggler({
   const toggle = () => {
     const next = theme === 'dark' ? 'light' : 'dark'
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
-    const start = (
-      document as Document & {
-        startViewTransition?: (callback: () => void) => {
-          finished: Promise<unknown>
-        }
+    const documentWithTransitions = document as Document & {
+      startViewTransition?: (callback: () => void) => {
+        finished: Promise<unknown>
       }
-    ).startViewTransition
+    }
+    const start = documentWithTransitions.startViewTransition
     if (!start || reduced) {
       onThemeChange(next)
       return
@@ -51,11 +50,11 @@ export function AnimatedThemeToggler({
       '--theme-duration',
       `${duration}ms`,
     )
-    const transition = start(() => {
+    const transition = documentWithTransitions.startViewTransition?.(() => {
       document.documentElement.classList.toggle('dark', next === 'dark')
       onThemeChange(next)
     })
-    transition.finished.finally(() => {
+    transition?.finished.finally(() => {
       document.documentElement.style.removeProperty('--theme-x')
       document.documentElement.style.removeProperty('--theme-y')
       document.documentElement.style.removeProperty('--theme-radius')
