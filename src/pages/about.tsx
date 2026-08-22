@@ -1,10 +1,8 @@
 import { useParams } from '@tanstack/react-router'
-import { Mail } from 'lucide-react'
 import { PhotoPlaceholder } from '@/components/photo-placeholder'
 import { SectionHeading } from '@/components/section-heading'
 import { copy, getLocale } from '@/lib/i18n'
 import { education, experiences, profile, skills } from '@/lib/data'
-import { site } from '@/lib/site'
 
 export function AboutPage() {
   const { locale: value } = useParams({ from: '/$locale/sobre' })

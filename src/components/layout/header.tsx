@@ -53,7 +53,11 @@ export function Header() {
           >
             {locale === 'en' ? 'PT' : 'EN'}
           </Link>
-          <AnimatedThemeToggler theme={theme} onThemeChange={setTheme} />
+          <AnimatedThemeToggler
+            theme={theme}
+            onThemeChange={setTheme}
+            variant="diamond"
+          />
         </div>
       </div>
     </header>

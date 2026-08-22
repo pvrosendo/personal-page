@@ -24,7 +24,7 @@ export const copy = {
     native: 'Nativo',
     advanced: 'Avançado',
     blog: 'Blog',
-    footer: 'Construído com cuidado por Paulo Vitor Rosendo.',
+    footer: 'Construído por Paulo Vitor Rosendo.',
     theme: 'Alternar tema',
   },
   en: {
@@ -45,7 +45,7 @@ export const copy = {
     native: 'Native',
     advanced: 'Advanced',
     blog: 'Blog',
-    footer: 'Built with care by Paulo Vitor Rosendo.',
+    footer: 'Built by Paulo Vitor Rosendo.',
     theme: 'Toggle theme',
   },
 } as const

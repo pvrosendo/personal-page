@@ -14,7 +14,7 @@ The first visual pass allowed the landing route to overflow vertically because i
 - The portrait placeholder is hidden below the `md` breakpoint. Mobile landing content is centered while the header and footer remain visible.
 - Supporting text uses a minimum readable scale of `12px`; meaningful descriptions use at least the body text scale.
 - The primary CTA keeps the Witcher accent with an explicit dark `cta-foreground` token instead of white text.
-- `startViewTransition` is invoked as a method of `document`, with an immediate fallback for unsupported browsers and reduced-motion users.
+- `startViewTransition` is invoked as a method of `document`; the new root snapshot is animated with a `diamond` clip-path after `transition.ready`, with an immediate fallback for unsupported browsers and reduced-motion users.
 
 ## Consequences
 

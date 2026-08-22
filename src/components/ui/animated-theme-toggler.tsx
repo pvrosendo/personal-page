@@ -1,35 +1,65 @@
 import { Moon, Sun } from 'lucide-react'
-import { useRef } from 'react'
+import { flushSync } from 'react-dom'
+import { useCallback, useRef } from 'react'
 import { cn } from '@/lib/utils'
 import type { Theme } from '@/hooks/use-theme'
+
+export type TransitionVariant = 'circle' | 'diamond'
 
 type Props = Omit<React.ComponentProps<'button'>, 'onClick'> & {
   theme: Theme
   onThemeChange: (theme: Theme) => void
   duration?: number
+  variant?: TransitionVariant
   fromCenter?: boolean
+}
+
+function getClipPaths(
+  variant: TransitionVariant,
+  x: number,
+  y: number,
+  maxRadius: number,
+): [string, string] {
+  if (variant === 'diamond') {
+    const radius = maxRadius * Math.SQRT2
+    return [
+      `polygon(${x}px ${y}px, ${x}px ${y}px, ${x}px ${y}px, ${x}px ${y}px)`,
+      `polygon(${x}px ${y - radius}px, ${x + radius}px ${y}px, ${x}px ${y + radius}px, ${x - radius}px ${y}px)`,
+    ]
+  }
+
+  return [
+    `circle(0px at ${x}px ${y}px)`,
+    `circle(${maxRadius}px at ${x}px ${y}px)`,
+  ]
 }
 
 export function AnimatedThemeToggler({
   theme,
   onThemeChange,
   duration = 400,
+  variant = 'circle',
   fromCenter = false,
   className,
   ...props
 }: Props) {
   const buttonRef = useRef<HTMLButtonElement>(null)
-  const toggle = () => {
+  const toggle = useCallback(() => {
     const next = theme === 'dark' ? 'light' : 'dark'
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
     const documentWithTransitions = document as Document & {
       startViewTransition?: (callback: () => void) => {
+        ready: Promise<void>
         finished: Promise<unknown>
       }
     }
     const start = documentWithTransitions.startViewTransition
-    if (!start || reduced) {
+    const applyTheme = () => {
+      document.documentElement.classList.toggle('dark', next === 'dark')
       onThemeChange(next)
+    }
+    if (!start || reduced) {
+      applyTheme()
       return
     }
     const button = buttonRef.current?.getBoundingClientRect()
@@ -51,8 +81,7 @@ export function AnimatedThemeToggler({
       `${duration}ms`,
     )
     const transition = documentWithTransitions.startViewTransition?.(() => {
-      document.documentElement.classList.toggle('dark', next === 'dark')
-      onThemeChange(next)
+      flushSync(applyTheme)
     })
     transition?.finished.finally(() => {
       document.documentElement.style.removeProperty('--theme-x')
@@ -60,7 +89,20 @@ export function AnimatedThemeToggler({
       document.documentElement.style.removeProperty('--theme-radius')
       document.documentElement.style.removeProperty('--theme-duration')
     })
-  }
+    transition?.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: getClipPaths(variant, x, y, radius),
+        },
+        {
+          duration,
+          easing: 'ease-in-out',
+          fill: 'forwards',
+          pseudoElement: '::view-transition-new(root)',
+        },
+      )
+    })
+  }, [duration, fromCenter, onThemeChange, theme, variant])
   return (
     <button
       ref={buttonRef}
