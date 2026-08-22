@@ -23,12 +23,12 @@ export function AboutPage() {
         </p>
       </section>
       <TimelineSection title={text.experience}>
-        {experiences.map((item) => (
-          <TimelineItem
-            key={item.company}
-            title={item.role[locale]}
-            meta={`${item.company} · ${item.period}`}
-            description={item.description[locale]}
+        {experienceGroups.map((group) => (
+          <ExperienceGroup
+            key={group.company}
+            company={group.company}
+            items={group.items}
+            locale={locale}
           />
         ))}
       </TimelineSection>
@@ -36,8 +36,10 @@ export function AboutPage() {
         {education.map((item) => (
           <TimelineItem
             key={item.company}
+            company={item.company}
             title={item.role[locale]}
-            meta={`${item.company} · ${item.period}`}
+            meta={item.period[locale]}
+            status={item.status?.[locale]}
           />
         ))}
       </TimelineSection>
@@ -94,26 +96,87 @@ function TimelineSection({
     </section>
   )
 }
-function TimelineItem({
-  title,
-  meta,
-  description,
+
+const experienceGroups = experiences.reduce<
+  Array<{ company: string; items: Array<(typeof experiences)[number]> }>
+>((groups, item) => {
+  const group = groups.find((entry) => entry.company === item.company)
+  if (group) {
+    group.items.push(item)
+  } else {
+    groups.push({ company: item.company, items: [item] })
+  }
+  return groups
+}, [])
+
+function ExperienceGroup({
+  company,
+  items,
+  locale,
 }: {
-  title: string
-  meta: string
-  description?: string
+  company: string
+  items: Array<(typeof experiences)[number]>
+  locale: keyof (typeof experiences)[number]['description']
 }) {
   return (
     <div className="relative pb-8 last:pb-0">
       <span className="absolute -left-[calc(1.75rem+5px)] top-1.5 size-2.5 rounded-full border-2 border-background bg-witcher" />
-      <h3 className="font-medium">{title}</h3>
-      <p className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
-        {meta}
-      </p>
-      {description && (
-        <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground">
-          {description}
+      <h3 className="font-display text-lg font-semibold tracking-tight">
+        {company}
+      </h3>
+      <div className="mt-3 divide-y divide-border border-t border-border">
+        {items.map((item) => (
+          <div className="py-4 first:pt-3" key={item.period}>
+            {item.role && <h4 className="font-medium">{item.role[locale]}</h4>}
+            <p className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+              {item.period}
+            </p>
+            {item.description[locale].length > 0 && (
+              <ul className="mt-3 max-w-xl list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
+                {item.description[locale].map((description) => (
+                  <li key={description}>{description}</li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function TimelineItem({
+  company,
+  title,
+  meta,
+  status,
+  description,
+}: {
+  company: string
+  title?: string
+  meta: string
+  status?: string
+  description?: string[]
+}) {
+  return (
+    <div className="relative pb-8 last:pb-0">
+      <span className="absolute -left-[calc(1.75rem+5px)] top-1.5 size-2.5 rounded-full border-2 border-background bg-witcher" />
+      <h3 className="font-display text-lg font-semibold tracking-tight">
+        {company}
+      </h3>
+      {title && <p className="mt-1 font-medium">{title}</p>}
+      {meta && (
+        <p className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+          {meta}
         </p>
+      )}
+      {status && <p className="mt-1 text-sm text-muted-foreground">{status}</p>}
+      {description && description.length > 0 && (
+        <ul className="mt-3 max-w-xl list-disc space-y-2 pl-5 text-base leading-relaxed text-muted-foreground">
+          {description.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
       )}
     </div>
   )

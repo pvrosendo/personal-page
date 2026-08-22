@@ -3,7 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { PortraitPhoto } from '@/components/portrait-photo'
 import { copy, getLocale } from '@/lib/i18n'
-import photo1 from '@/assets/photo1.jpg'
+import photo1 from '@/assets/photo1.webp'
 
 export function LandingPage() {
   const { locale: value } = useParams({ from: '/$locale/' })
@@ -12,7 +12,7 @@ export function LandingPage() {
   const param = locale === 'en' ? 'en' : 'pt-br'
   return (
     <section className="page-enter flex min-h-0 flex-1 items-center px-6 py-8 md:px-8 md:py-10">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-8 text-center md:grid-cols-[1fr_280px] md:gap-14 md:text-left lg:gap-24">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-8 text-center md:grid-cols-[minmax(0,1fr)_320px] md:gap-14 md:text-left lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-24">
         <div>
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-muted-foreground md:mb-6">
             {text.developer}
@@ -42,7 +42,7 @@ export function LandingPage() {
         <PortraitPhoto
           src={photo1}
           alt="Paulo Vitor Rosendo"
-          className="mx-auto hidden w-full max-w-[280px] rotate-2 transition-transform duration-500 hover:rotate-0 md:block"
+          className="mx-auto hidden w-full max-w-[360px] md:block"
         />
       </div>
     </section>
