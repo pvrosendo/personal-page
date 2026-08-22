@@ -20,7 +20,7 @@ export function LandingPage() {
           <h1 className="mx-auto max-w-3xl font-display text-[clamp(3.25rem,10vw,8.5rem)] font-semibold leading-[0.84] tracking-[-0.09em] md:mx-0">
             Paulo Vitor
             <br />
-            <span className="text-muted-foreground/45">Rosendo</span>
+          <span className="text-muted-foreground/70">Rosendo</span>
           </h1>
           <p className="mx-auto mt-8 max-w-md text-base leading-relaxed text-muted-foreground md:mx-0 md:mt-9 md:text-lg">
             {text.tagline}

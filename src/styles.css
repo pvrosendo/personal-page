@@ -13,7 +13,6 @@
   --border: oklch(92% 0.004 286.32);
   --witcher: oklch(0.72 0.11 86);
   --biolum: oklch(0.81 0.13 163);
-  --cta-foreground: oklch(0.22 0.03 86);
 }
 
 .dark {
@@ -32,7 +31,6 @@
   --color-border: var(--border);
   --color-witcher: var(--witcher);
   --color-biolum: var(--biolum);
-  --color-cta-foreground: var(--cta-foreground);
   --font-display: "Space Grotesk Variable", sans-serif;
   --font-sans: "Instrument Sans Variable", sans-serif;
   --font-mono: "JetBrains Mono Variable", monospace;
