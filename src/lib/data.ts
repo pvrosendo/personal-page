@@ -11,12 +11,12 @@ export const profile: Localized = {
 export const experiences: Array<{
   role?: Localized
   company: string
-  period: string
+  period: Localized
   description: Localized
 }> = [
   {
     company: 'Globo',
-    period: 'ago de 2025 — o momento',
+    period: { 'pt-BR': 'ago de 2025 — o momento', en: 'Aug 2025 — present' },
     description: {
       'pt-BR':
         'Atuação no ecossistema de autenticação e identidade da Globo, contribuindo para sistemas críticos e de alto volume com desenvolvimento de APIs e plataformas internas em Go e React, integração com OAuth2/OIDC, Pub/Sub e serviços de nuvem, além de soluções com MongoDB, Redis e Grafana.',
@@ -25,7 +25,7 @@ export const experiences: Array<{
   },
   {
     company: 'Grupo Profarma',
-    period: 'fev de 2025 — ago de 2025',
+    period: { 'pt-BR': 'fev de 2025 — ago de 2025', en: 'Feb 2025 — Aug 2025' },
     description: {
       'pt-BR':
         'Atuação no time N3 do Grupo Profarma, analisando e depurando sistemas críticos em Java, C# e Angular, além de desenvolver Web APIs, automatizar processos internos e monitorar a performance das rotinas de negócio com Datadog.',
@@ -38,7 +38,7 @@ export const experiences: Array<{
       en: 'Captain | General Director',
     },
     company: 'MinervaBots - UFRJ',
-    period: 'dez de 2023 — dez de 2024',
+    period: { 'pt-BR': 'dez de 2023 — dez de 2024', en: 'Dec 2023 — Dec 2024' },
     description: {
       'pt-BR':
         'Gestão executiva da equipe estudantil com 60 membros, conduzindo planejamento estratégico, definição de KPIs, gestão de riscos, alocação de recursos e relações institucionais. A liderança contribuiu para a conquista de 6 troféus nacionais e do inédito 1º lugar mundial no All Japan Robot Sumo Tournament.',
@@ -51,7 +51,7 @@ export const experiences: Array<{
       en: 'Software Project Coordinator',
     },
     company: 'MinervaBots - UFRJ',
-    period: 'mai de 2023 — dez de 2023',
+    period: { 'pt-BR': 'mai de 2023 — dez de 2023', en: 'May 2023 — Dec 2023' },
     description: {
       'pt-BR':
         'Coordenação do desenvolvimento de software em mais de 10 projetos técnicos de sistemas robóticos, com planejamento, revisão de código e otimização de performance, além da padronização do ciclo de vida da equipe com Scrumban e GitFlow.',
@@ -64,7 +64,7 @@ export const experiences: Array<{
       en: 'Electronics and Programmer',
     },
     company: 'MinervaBots - UFRJ',
-    period: 'nov de 2022 — mai de 2023',
+    period: { 'pt-BR': 'nov de 2022 — mai de 2023', en: 'Nov 2022 — May 2023' },
     description: {
       'pt-BR':
         'Desenvolvimento de projetos robóticos para competição, incluindo confecção de placas eletrônicas, integração de sensores e software de locomoção e sensoriamento com sistemas embarcados como ESP32 e Jetson Nano. Também atuei na evolução de uma aplicação Android em Flutter e WebSockets para telemetria em tempo real.',
@@ -77,7 +77,7 @@ export const experiences: Array<{
       en: 'Electronics and Programmer Trainee',
     },
     company: 'MinervaBots - UFRJ',
-    period: 'set de 2022 — nov de 2022',
+    period: { 'pt-BR': 'set de 2022 — nov de 2022', en: 'Sep 2022 — Nov 2022' },
     description: {
       'pt-BR':
         'Formação inicial em eletrônica e programação aplicada ao desenvolvimento de robôs para competição.',
@@ -109,12 +109,27 @@ export const education = [
   },
 ]
 
-export const skills = [
-  ['Linguagens', 'Go · Java · TypeScript · C++'],
-  ['Front-end', 'React · Next.js · Tanstack · Tailwind'],
-  ['Back-end', 'Echo · Spring · SQL · NoSQL'],
-  ['Tools', 'Git · Linux · Docker · Grafana · GCP'],
-  ['Embarcados', 'ESP32 · Arduino · Jetson Nano'],
+export const skills: Array<{ category: Localized; values: string }> = [
+  {
+    category: { 'pt-BR': 'Linguagens', en: 'Languages' },
+    values: 'Go · Java · TypeScript · C++',
+  },
+  {
+    category: { 'pt-BR': 'Front-end', en: 'Front-end' },
+    values: 'React · Next.js · Tanstack · Tailwind',
+  },
+  {
+    category: { 'pt-BR': 'Back-end', en: 'Back-end' },
+    values: 'Echo · Spring · SQL · NoSQL',
+  },
+  {
+    category: { 'pt-BR': 'Ferramentas', en: 'Tools' },
+    values: 'Git · Linux · Docker · Grafana · GCP',
+  },
+  {
+    category: { 'pt-BR': 'Embarcados', en: 'Embedded' },
+    values: 'ESP32 · Arduino · Jetson Nano',
+  },
 ]
 
 export const projects = [

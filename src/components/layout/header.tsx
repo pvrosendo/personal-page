@@ -21,7 +21,9 @@ export function Header() {
       <div className="flex w-full items-center justify-between">
         <nav
           className="flex items-center gap-5"
-          aria-label="Navegação principal"
+          aria-label={
+            locale === 'en' ? 'Main navigation' : 'Navegação principal'
+          }
         >
           <Link
             to="/$locale"
@@ -57,6 +59,7 @@ export function Header() {
             theme={theme}
             onThemeChange={setTheme}
             variant="diamond"
+            aria-label={labels.theme}
           />
         </div>
       </div>

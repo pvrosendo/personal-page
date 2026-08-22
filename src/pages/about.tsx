@@ -48,13 +48,13 @@ export function AboutPage() {
           {text.skills}
         </h2>
         <div className="divide-y divide-border border-y border-border">
-          {skills.map(([category, values]) => (
+          {skills.map(({ category, values }) => (
             <div
               className="grid gap-2 py-4 sm:grid-cols-[130px_1fr]"
-              key={category}
+              key={category.en}
             >
               <span className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
-                {category}
+                {category[locale]}
               </span>
               <span className="text-base">{values}</span>
             </div>
@@ -66,9 +66,9 @@ export function AboutPage() {
           {text.languages}
         </h2>
         <p className="text-base text-muted-foreground">
-          Português —{' '}
+          {text.portuguese} —{' '}
           <strong className="font-medium text-foreground">{text.native}</strong>{' '}
-          <span className="mx-2 text-border">·</span> English —{' '}
+          <span className="mx-2 text-border">·</span> {text.english} —{' '}
           <strong className="font-medium text-foreground">
             {text.advanced}
           </strong>
@@ -126,10 +126,10 @@ function ExperienceGroup({
       </h3>
       <div className="mt-3 divide-y divide-border border-t border-border">
         {items.map((item) => (
-          <div className="py-4 first:pt-3" key={item.period}>
+          <div className="py-4 first:pt-3" key={item.period.en}>
             {item.role && <h4 className="font-medium">{item.role[locale]}</h4>}
             <p className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
-              {item.period}
+              {item.period[locale]}
             </p>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
               {item.description[locale]}

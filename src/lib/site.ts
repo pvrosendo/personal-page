@@ -1,6 +1,6 @@
 export const site = {
   name: 'Paulo Vitor Rosendo',
-  email: 'paulo@example.com',
-  github: 'https://github.com/',
-  linkedin: 'https://www.linkedin.com/',
+  email: 'paulovitor.rsd@gmail.com',
+  github: 'https://github.com/pvrosendo',
+  linkedin: 'https://www.linkedin.com/in/paulo-vitor-rosendo/',
 }
