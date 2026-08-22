@@ -18,7 +18,7 @@ export function AboutPage() {
           alt="Paulo Vitor Rosendo"
           className="w-40"
         />
-        <p className="max-w-xl self-center text-lg leading-relaxed text-muted-foreground">
+        <p className="max-w-xl self-center text-base leading-relaxed text-muted-foreground">
           {profile[locale]}
         </p>
       </section>

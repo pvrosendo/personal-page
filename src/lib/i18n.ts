@@ -10,8 +10,7 @@ export const copy = {
     navAbout: 'Sobre',
     navProjects: 'Projetos',
     developer: 'Software Developer',
-    tagline:
-      'Desenvolvedor apaixonado por construir soluções robustas e bem projetadas.',
+    tagline: 'Desenvolvedor de software movido pela curiosidade em entender como as coisas funcionam.',
     viewProjects: 'Projetos',
     readAbout: 'Sobre',
     aboutEyebrow: '// SOBRE',
@@ -33,8 +32,7 @@ export const copy = {
     navAbout: 'About',
     navProjects: 'Projects',
     developer: 'Software Developer',
-    tagline:
-      'A developer passionate about building robust, well-designed solutions.',
+    tagline: 'Software developer driven by curiosity on understanding how things work.',
     viewProjects: 'Projects',
     readAbout: 'About',
     aboutEyebrow: '// ABOUT',

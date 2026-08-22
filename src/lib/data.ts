@@ -4,8 +4,8 @@ type Localized = Record<Locale, string>
 
 export const profile: Localized = {
   'pt-BR':
-    'Minha trajetória combina engenharia de software, curiosidade técnica e atenção aos detalhes que tornam produtos melhores.',
-  en: 'My path combines software engineering, technical curiosity, and attention to the details that make products better.',
+    'Minha trajetória combina engenharia de software, sistemas críticos e robótica. Hoje atuo no ecossistema de autenticação e identidade da Globo, desenvolvendo APIs e plataformas internas com Go e React. Antes, trabalhei com sistemas no Grupo Profarma e, na MinervaBots, desenvolvi soluções embarcadas, coordenei projetos e liderei uma equipe de 60 membros.',
+  en: "My background combines software engineering, critical systems, and robotics. I currently work on Globo's authentication and identity ecosystem, developing APIs and internal platforms with Go and React. Previously, I worked on systems at Grupo Profarma and, at MinervaBots, developed embedded solutions, coordinated projects, and led a 60-member team.",
 }
 
 export const experiences: Array<{
