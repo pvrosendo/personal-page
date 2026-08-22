@@ -13,6 +13,7 @@ The Lighthouse report was run against `http://localhost:3000/en` using the Vite 
 - The primary Witcher CTA uses an explicit dark foreground color to preserve readable contrast against the gold background.
 - `robots.txt` and `llms.txt` are static files in `public/`, allowing Vite and the production host to serve them as files instead of routing them to `index.html`.
 - Public favicon assets use semantic names: `favicon.ico` and `favicon-*` for browser icons, `apple-touch-icon.png` for iOS, and `icon-*` for manifest/PWA sizes. Generator duplicates and its README are not shipped.
+- Vercel SPA routing: `vercel.json` rewrites all unmatched paths to `/index.html` so TanStack Router handles navigation client-side; direct URL access and page refresh on locale routes (`/en/projetos`, `/pt-br/sobre`, etc.) work without 404.
 - Lighthouse performance audits must use `pnpm build` and `pnpm preview`. Development-server payloads and extension-injected scripts are not application performance evidence.
 
 ## Consequences

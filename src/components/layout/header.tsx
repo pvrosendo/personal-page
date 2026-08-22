@@ -12,10 +12,9 @@ export function Header() {
   const location = useLocation()
   const { theme, setTheme } = useTheme()
   const other: Locale = locale === 'en' ? 'pt-BR' : 'en'
-  const otherPath = location.pathname.replace(
-    `/${localeParam}`,
-    `/${other === 'en' ? 'en' : 'pt-br'}`,
-  )
+  const otherPath = `/${other}/${
+    location.pathname.startsWith(`/${locale}`) ? locale : 'pt-br'
+  }`
   return (
     <header className="fixed inset-x-0 top-0 z-20 w-full border-b border-border/70 bg-background/80 px-5 py-4 backdrop-blur-md md:px-8">
       <div className="flex w-full items-center justify-between">
