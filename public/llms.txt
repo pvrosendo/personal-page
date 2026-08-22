@@ -1,0 +1,14 @@
+# Paulo Vitor Rosendo
+
+> Software developer focused on web development, reliable systems, and technical curiosity.
+
+## Portfolio
+
+- [Portfolio](https://pvrosendo.is-a.dev/): Personal portfolio and selected projects.
+- [About](https://pvrosendo.is-a.dev/en/sobre): Experience, education, and technical background.
+- [Projects](https://pvrosendo.is-a.dev/en/projetos): Selected software, web, and embedded projects.
+
+## Profiles
+
+- [GitHub](https://github.com/pvrosendo): Source code and open-source projects.
+- [LinkedIn](https://www.linkedin.com/in/paulo-vitor-rosendo/): Professional profile.
