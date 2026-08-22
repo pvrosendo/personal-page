@@ -14,6 +14,7 @@ The portfolio content initially used generic placeholder copy and LinkedIn-like 
 - The About timeline groups repeated roles under one company marker. Each role is separated visually without repeating the company, and the experience metadata shows only the timestamp.
 - All user-facing dates and labels that vary by language require localized values. Company names and technology names remain unchanged unless they have an established translated form.
 - The landing copy emphasizes web software development, curiosity, and persistence. The About introduction connects software engineering, critical systems, robotics, and leadership without duplicating the full timeline.
+- Projects are presented as a numbered editorial index rather than image cards. Each row shows the title, concise description, stack, and icon-only external links; `status` remains in the data model but is not displayed, while `featured` is omitted because all current projects were marked featured and did not create a meaningful distinction.
 
 ## Consequences
 

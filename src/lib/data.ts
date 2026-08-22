@@ -134,41 +134,113 @@ export const skills: Array<{ category: Localized; values: string }> = [
 
 export const projects = [
   {
-    title: 'O Códex',
-    description: {
-      'pt-BR': 'Blog técnico independente sobre engenharia de software.',
-      en: 'Independent technical blog about software engineering.',
-    },
-    stack: ['React', 'TypeScript', 'Obsidian'],
-    badge: true,
-    links: [{ label: 'site', href: 'https://example.com' }],
-  },
-  {
-    title: 'Project Alpha',
+    id: '1',
+    title: 'Kanban Flow',
     description: {
       'pt-BR':
-        'Lorem ipsum dolor sit amet, uma plataforma feita para simplificar fluxos.',
-      en: 'Lorem ipsum dolor sit amet, a platform built to simplify workflows.',
+        'Plugin de kanban para Obsidian criado para melhorar a experiência e o uso de quadros kanban.',
+      en: 'Obsidian kanban plugin created to improve the experience and use of kanban boards.',
     },
-    stack: ['React', 'Go', 'PostgreSQL'],
-    links: [{ label: 'GitHub', href: 'https://github.com/' }],
+    stack: ['TypeScript', 'Obsidian', 'Kanban'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/pvrosendo/kanban-flow' },
+    ],
+    status: 'active',
   },
   {
-    title: 'Project Beta',
+    id: '2',
+    title: 'Max Theme',
     description: {
-      'pt-BR': 'Ferramenta experimental para visualizar dados em tempo real.',
-      en: 'Experimental tool for visualizing real-time data.',
+      'pt-BR': 'Tema para Obsidian inspirado na interface do chat Claude AI.',
+      en: 'Obsidian theme inspired by the Claude AI chat interface.',
     },
-    stack: ['TypeScript', 'WebSocket'],
-    links: [{ label: 'site', href: 'https://example.com' }],
+    stack: ['CSS', 'Obsidian', 'Theme'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/pvrosendo/max-theme' },
+    ],
+    status: 'active',
   },
   {
-    title: 'Project Gamma',
+    id: '3',
+    title: 'Learn Sharks',
     description: {
-      'pt-BR': 'Aplicação open source para organizar conhecimento pessoal.',
-      en: 'Open source application for organizing personal knowledge.',
+      'pt-BR': 'Site interativo para descobrir mais sobre os tubarões.',
+      en: 'Interactive website to discover more about sharks.',
     },
-    stack: ['React', 'Node.js', 'SQLite'],
-    links: [{ label: 'GitHub', href: 'https://github.com/' }],
+    stack: [
+      'React',
+      'Next.js',
+      'Tailwind CSS',
+      'TypeScript',
+      'GSAP',
+      'Canvas 2D',
+    ],
+    links: [{ label: 'site', href: 'https://learn-sharks.vercel.app/' }],
+    status: 'active',
+  },
+  {
+    id: '4',
+    title: 'Portfolio & Blog v2',
+    description: {
+      'pt-BR':
+        'Segunda versão do site pessoal, reescrita em React com TanStack.',
+      en: 'Second version of the personal website, rewritten in React with TanStack.',
+    },
+    stack: ['React', 'TanStack', 'Tailwind CSS', 'TypeScript'],
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/pvrosendo/portfolio-project',
+      },
+      { label: 'site', href: 'https://pvrosendo.is-a.dev/' },
+    ],
+    status: 'active',
+  },
+  {
+    id: '5',
+    title: 'Portfolio & Blog v1',
+    description: {
+      'pt-BR':
+        'Site pessoal com blog e projetos, a primeira versão construída em Angular.',
+      en: 'Personal website with a blog and projects, the first version built with Angular.',
+    },
+    stack: ['Angular', 'TypeScript', 'Bootstrap'],
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/pvrosendo/blog-and-portfolio',
+      },
+    ],
+    status: 'archived',
+  },
+  {
+    id: '6',
+    title: 'Materials Visor',
+    description: {
+      'pt-BR':
+        'Projeto de monitoramento do envelhecimento de materiais por meio de quadros artísticos.',
+      en: 'Material aging monitoring project using artistic panels.',
+    },
+    stack: ['C++', 'ESP32', 'Arduino', 'Arduino Framework'],
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/pvrosendo/monitoracao-de-materiais',
+      },
+    ],
+    status: 'archived',
+  },
+  {
+    id: '7',
+    title: 'Wokwi ESP32 Projects',
+    description: {
+      'pt-BR': 'Simulações de projetos ESP32 no Wokwi.',
+      en: 'ESP32 project simulations on Wokwi.',
+    },
+    stack: ['Wokwi', 'ESP32', 'Arduino'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/pvrosendo/wokwi-projects' },
+    ],
+    status: 'archived',
   },
 ]
