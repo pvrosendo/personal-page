@@ -1,8 +1,9 @@
 import { useParams } from '@tanstack/react-router'
-import { PhotoPlaceholder } from '@/components/photo-placeholder'
+import { PortraitPhoto } from '@/components/portrait-photo'
 import { SectionHeading } from '@/components/section-heading'
 import { copy, getLocale } from '@/lib/i18n'
 import { education, experiences, profile, skills } from '@/lib/data'
+import photo2 from '@/assets/photo2.jpg'
 
 export function AboutPage() {
   const { locale: value } = useParams({ from: '/$locale/sobre' })
@@ -12,7 +13,11 @@ export function AboutPage() {
     <article className="page-enter mx-auto max-w-3xl px-6 py-12 pb-20">
       <SectionHeading eyebrow={text.aboutEyebrow} title={text.navAbout} />
       <section className="grid gap-9 md:grid-cols-[180px_1fr] md:gap-12">
-        <PhotoPlaceholder className="w-40" />
+        <PortraitPhoto
+          src={photo2}
+          alt="Paulo Vitor Rosendo"
+          className="w-40"
+        />
         <p className="max-w-xl self-center text-lg leading-relaxed text-muted-foreground">
           {profile[locale]}
         </p>

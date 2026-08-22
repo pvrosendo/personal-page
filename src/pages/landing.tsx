@@ -1,8 +1,9 @@
 import { Link, useParams } from '@tanstack/react-router'
 import { ArrowUpRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { PhotoPlaceholder } from '@/components/photo-placeholder'
+import { PortraitPhoto } from '@/components/portrait-photo'
 import { copy, getLocale } from '@/lib/i18n'
+import photo1 from '@/assets/photo1.jpg'
 
 export function LandingPage() {
   const { locale: value } = useParams({ from: '/$locale/' })
@@ -38,7 +39,11 @@ export function LandingPage() {
             </Button>
           </div>
         </div>
-        <PhotoPlaceholder className="mx-auto hidden w-full max-w-[280px] rotate-2 transition-transform duration-500 hover:rotate-0 md:block" />
+        <PortraitPhoto
+          src={photo1}
+          alt="Paulo Vitor Rosendo"
+          className="mx-auto hidden w-full max-w-[280px] rotate-2 transition-transform duration-500 hover:rotate-0 md:block"
+        />
       </div>
     </section>
   )
