@@ -131,13 +131,9 @@ function ExperienceGroup({
             <p className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
               {item.period}
             </p>
-            {item.description[locale].length > 0 && (
-              <ul className="mt-3 max-w-xl list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
-                {item.description[locale].map((description) => (
-                  <li key={description}>{description}</li>
-                ))}
-              </ul>
-            )}
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              {item.description[locale]}
+            </p>
           </div>
         ))}
       </div>
@@ -156,7 +152,7 @@ function TimelineItem({
   title?: string
   meta: string
   status?: string
-  description?: string[]
+  description?: string
 }) {
   return (
     <div className="relative pb-8 last:pb-0">
@@ -171,12 +167,10 @@ function TimelineItem({
         </p>
       )}
       {status && <p className="mt-1 text-sm text-muted-foreground">{status}</p>}
-      {description && description.length > 0 && (
-        <ul className="mt-3 max-w-xl list-disc space-y-2 pl-5 text-base leading-relaxed text-muted-foreground">
-          {description.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+      {description && (
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground">
+          {description}
+        </p>
       )}
     </div>
   )

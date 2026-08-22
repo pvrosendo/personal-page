@@ -1,7 +1,6 @@
 import type { Locale } from './i18n'
 
 type Localized = Record<Locale, string>
-type LocalizedList = Record<Locale, string[]>
 
 export const profile: Localized = {
   'pt-BR':
@@ -13,40 +12,24 @@ export const experiences: Array<{
   role?: Localized
   company: string
   period: string
-  description: LocalizedList
+  description: Localized
 }> = [
   {
     company: 'Globo',
     period: 'ago de 2025 — o momento',
     description: {
-      'pt-BR': [
-        'Atuando no ecossistema de autenticação e identidade da Globo, contribuindo para sistemas de alto volume e críticos para o negócio durante todo o seu ciclo de vida.',
-        'Desenvolvimento e integração de APIs e plataformas internas utilizando Go, React, OAuth2/OIDC, Docker e Google Cloud Pub/Sub.',
-        'Trabalho com bancos NoSQL, soluções de cache e comunicação assíncrona utilizando MongoDB e Redis.',
-        'Suporte à manutenção e investigação de problemas por meio de ferramentas de observabilidade como Grafana, além de atuação em refatorações, testes, migrações e documentação técnica.',
-      ],
-      en: [
-        "Working on Globo's authentication and identity ecosystem, contributing to high-volume and business-critical services throughout their lifecycle.",
-        'Developing and integrating APIs and internal platforms using Go, React, OAuth2/OIDC, Docker, and Google Cloud Pub/Sub.',
-        'Working with NoSQL databases, caching solutions, and asynchronous communication using MongoDB and Redis.',
-        'Supporting system maintenance and troubleshooting through observability tools such as Grafana, while contributing to refactoring, testing, migrations, and technical documentation.',
-      ],
+      'pt-BR':
+        'Atuação no ecossistema de autenticação e identidade da Globo, contribuindo para sistemas críticos e de alto volume com desenvolvimento de APIs e plataformas internas em Go e React, integração com OAuth2/OIDC, Pub/Sub e serviços de nuvem, além de soluções com MongoDB, Redis e Grafana.',
+      en: "Working on Globo's authentication and identity ecosystem, contributing to high-volume and business-critical systems through APIs and internal platforms built with Go and React, OAuth2/OIDC integration, Pub/Sub and cloud services, as well as MongoDB, Redis, and Grafana solutions.",
     },
   },
   {
     company: 'Grupo Profarma',
     period: 'fev de 2025 — ago de 2025',
     description: {
-      'pt-BR': [
-        'Atuação no time N3, realizando análise e debugging de sistemas críticos em Java (Spring Boot), C# (.NET) e Angular.',
-        'Desenvolvimento de Web APIs e automações de processos internos, reduzindo o esforço manual.',
-        'Monitoramento e análise de performance utilizando Datadog.',
-      ],
-      en: [
-        'Working in the N3 team, performing analysis and debugging of critical systems in Java (Spring Boot), C# (.NET), and Angular.',
-        "Development of Web APIs and automation of internal processes, reducing the team's manual effort.",
-        'Monitoring and performance analysis using Datadog, ensuring the health of retail business routines.',
-      ],
+      'pt-BR':
+        'Atuação no time N3 do Grupo Profarma, analisando e depurando sistemas críticos em Java, C# e Angular, além de desenvolver Web APIs, automatizar processos internos e monitorar a performance das rotinas de negócio com Datadog.',
+      en: "Working on Grupo Profarma's N3 team, analyzing and debugging critical systems in Java, C#, and Angular while developing Web APIs, automating internal processes, and monitoring business routine performance with Datadog.",
     },
   },
   {
@@ -57,16 +40,9 @@ export const experiences: Array<{
     company: 'MinervaBots - UFRJ',
     period: 'dez de 2023 — dez de 2024',
     description: {
-      'pt-BR': [
-        'Gestão executiva da equipe com 60 membros, liderando o planejamento estratégico, definição de KPIs, gestão de riscos e alocação de recursos.',
-        'Condução de relações institucionais e captação de parcerias estratégicas no ecossistema corporativo e acadêmico.',
-        'Liderança na conquista de 6 troféus nacionais e no inédito 1º lugar mundial no All Japan Robot Sumo Tournament na história da equipe.',
-      ],
-      en: [
-        'Executive management of a student organization with 60 members, leading strategic planning, KPI definition, risk management, and resource allocation.',
-        'Management of institutional relations and acquisition of strategic partnerships in the corporate and academic ecosystem.',
-        "High-performance leadership, culminating in winning 6 national trophies and the unprecedented 1st place worldwide in the All Japan Robot Sumo Tournament in the team's history.",
-      ],
+      'pt-BR':
+        'Gestão executiva da equipe estudantil com 60 membros, conduzindo planejamento estratégico, definição de KPIs, gestão de riscos, alocação de recursos e relações institucionais. A liderança contribuiu para a conquista de 6 troféus nacionais e do inédito 1º lugar mundial no All Japan Robot Sumo Tournament.',
+      en: "Executive management of a 60-member student organization, leading strategic planning, KPI definition, risk management, resource allocation, and institutional relations. This leadership contributed to winning 6 national trophies and the team's unprecedented 1st place worldwide in the All Japan Robot Sumo Tournament.",
     },
   },
   {
@@ -77,14 +53,9 @@ export const experiences: Array<{
     company: 'MinervaBots - UFRJ',
     period: 'mai de 2023 — dez de 2023',
     description: {
-      'pt-BR': [
-        'Padronização do ciclo de vida de desenvolvimento de software de toda a equipe com a adoção oficial das metodologias Scrumban e GitFlow.',
-        'Planejamento, revisão de código e otimização de performance em mais de 10 projetos técnicos de sistemas robóticos.',
-      ],
-      en: [
-        "Standardization of the entire team's software development lifecycle through the official adoption of Scrumban and GitFlow methodologies.",
-        'Planning, code review, and performance optimization in over 10 technical robotic systems projects.',
-      ],
+      'pt-BR':
+        'Coordenação do desenvolvimento de software em mais de 10 projetos técnicos de sistemas robóticos, com planejamento, revisão de código e otimização de performance, além da padronização do ciclo de vida da equipe com Scrumban e GitFlow.',
+      en: "Coordinated software development across more than 10 technical robotic systems projects, covering planning, code review, and performance optimization while standardizing the team's lifecycle with Scrumban and GitFlow.",
     },
   },
   {
@@ -95,14 +66,9 @@ export const experiences: Array<{
     company: 'MinervaBots - UFRJ',
     period: 'nov de 2022 — mai de 2023',
     description: {
-      'pt-BR': [
-        'Desenvolvimento de sistemas para análise de dados integrado a embarcados (Jetson Nano e ESP32) com comunicação via Wi-Fi e Bluetooth.',
-        'Refatoração de aplicação mobile Android utilizando Flutter e WebSockets para coleta de dados e telemetria de robôs em tempo real.',
-      ],
-      en: [
-        'Development of systems for data analysis integrated with embedded systems (Jetson Nano and ESP32) with communication via Wi-Fi and Bluetooth.',
-        'Refactoring of an Android mobile application using Flutter and WebSockets for data collection and real-time robot telemetry.',
-      ],
+      'pt-BR':
+        'Desenvolvimento de projetos robóticos para competição, incluindo confecção de placas eletrônicas, integração de sensores e software de locomoção e sensoriamento com sistemas embarcados como ESP32 e Jetson Nano. Também atuei na evolução de uma aplicação Android em Flutter e WebSockets para telemetria em tempo real.',
+      en: 'Developed robotic projects for competition, including electronic board fabrication, sensor integration, and locomotion and sensing software using embedded systems such as ESP32 and Jetson Nano. Also contributed to an Android application built with Flutter and WebSockets for real-time telemetry.',
     },
   },
   {
@@ -112,7 +78,11 @@ export const experiences: Array<{
     },
     company: 'MinervaBots - UFRJ',
     period: 'set de 2022 — nov de 2022',
-    description: { 'pt-BR': [], en: [] },
+    description: {
+      'pt-BR':
+        'Formação inicial em eletrônica e programação aplicada ao desenvolvimento de robôs para competição.',
+      en: 'Initial training in electronics and programming applied to the development of competition robots.',
+    },
   },
 ]
 
@@ -127,8 +97,7 @@ export const education = [
   },
   {
     role: {
-      'pt-BR':
-        'Bacharelado · Engenharia Eletrônica e de Computação',
+      'pt-BR': 'Bacharelado · Engenharia Eletrônica e de Computação',
       en: "Bachelor's Degree · Electronic and Computer Engineering",
     },
     company: 'UFRJ - Universidade Federal do Rio de Janeiro',
