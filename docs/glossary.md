@@ -9,3 +9,5 @@
 - **Editorial content**: Portfolio-specific writing kept in typed data files, distinct from translatable UI chrome.
 - **Localized value**: A data value with an equivalent entry for every supported locale, such as a date, role, description, or label.
 - **Company timeline group**: A single timeline marker for one employer or organization containing its roles in chronological sequence.
+- **Production-like audit**: A Lighthouse run against the built application served by `pnpm preview`, without Vite development tooling or browser extensions affecting the result.
+- **Static discovery files**: Root-served `robots.txt` and `llms.txt` files in `public/` that must not be handled by the SPA fallback.
