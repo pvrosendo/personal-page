@@ -63,7 +63,7 @@ function ProjectCard({
           <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
             {project.description[locale]}
           </p>
-          <div className="mt-4 flex flex-wrap gap-x-2 gap-y-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+          <div className="mt-4 flex flex-wrap gap-x-2 gap-y-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
             {project.stack.map((tag) => (
               <span key={tag}>{tag}</span>
             ))}

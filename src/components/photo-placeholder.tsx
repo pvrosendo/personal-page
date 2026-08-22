@@ -7,7 +7,7 @@ export function PhotoPlaceholder({ className = '' }: { className?: string }) {
       <span className="absolute bottom-5 left-5 font-display text-6xl font-bold tracking-[-0.1em] text-witcher/80">
         PV
       </span>
-      <span className="absolute right-5 top-5 font-mono text-[9px] uppercase tracking-[0.3em] text-muted-foreground">
+      <span className="absolute right-5 top-5 font-mono text-xs uppercase tracking-[0.24em] text-muted-foreground">
         portrait / 01
       </span>
     </div>

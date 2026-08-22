@@ -48,10 +48,10 @@ export function AboutPage() {
               className="grid gap-2 py-4 sm:grid-cols-[130px_1fr]"
               key={category}
             >
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              <span className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground">
                 {category}
               </span>
-              <span className="text-sm">{values}</span>
+              <span className="text-base">{values}</span>
             </div>
           ))}
         </div>
@@ -60,7 +60,7 @@ export function AboutPage() {
         <h2 className="mb-6 font-display text-2xl font-semibold tracking-tight">
           {text.languages}
         </h2>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-base text-muted-foreground">
           Português —{' '}
           <strong className="font-medium text-foreground">{text.native}</strong>{' '}
           <span className="mx-2 text-border">·</span> English —{' '}
@@ -111,11 +111,11 @@ function TimelineItem({
     <div className="relative pb-8 last:pb-0">
       <span className="absolute -left-[calc(1.75rem+5px)] top-1.5 size-2.5 rounded-full border-2 border-background bg-witcher" />
       <h3 className="font-medium">{title}</h3>
-      <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+      <p className="mt-1 font-mono text-xs uppercase tracking-wider text-muted-foreground">
         {meta}
       </p>
       {description && (
-        <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground">
           {description}
         </p>
       )}

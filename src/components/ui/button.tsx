@@ -8,7 +8,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-witcher text-[#17150d] hover:brightness-110',
+        primary: 'bg-witcher text-cta-foreground hover:brightness-110',
         outline:
           'border border-border text-foreground hover:border-witcher hover:text-witcher',
         ghost: 'text-muted-foreground hover:text-foreground',
