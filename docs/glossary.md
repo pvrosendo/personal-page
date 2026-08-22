@@ -11,3 +11,4 @@
 - **Company timeline group**: A single timeline marker for one employer or organization containing its roles in chronological sequence.
 - **Production-like audit**: A Lighthouse run against the built application served by `pnpm preview`, without Vite development tooling or browser extensions affecting the result.
 - **Static discovery files**: Root-served `robots.txt` and `llms.txt` files in `public/` that must not be handled by the SPA fallback.
+- **Favicon set**: The small browser, iOS, and manifest icons served from `public/` using semantic filenames instead of generator-specific names.

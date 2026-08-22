@@ -4,8 +4,8 @@ type Localized = Record<Locale, string>
 
 export const profile: Localized = {
   'pt-BR':
-    'Minha trajetória combina engenharia de software, sistemas críticos e robótica. Hoje atuo no ecossistema de autenticação e identidade da Globo, desenvolvendo APIs e plataformas internas com Go e React. Antes, trabalhei com sistemas no Grupo Profarma e, na MinervaBots, desenvolvi soluções embarcadas, coordenei projetos e liderei uma equipe de 60 membros.',
-  en: "My background combines software engineering, critical systems, and robotics. I currently work on Globo's authentication and identity ecosystem, developing APIs and internal platforms with Go and React. Previously, I worked on systems at Grupo Profarma and, at MinervaBots, developed embedded solutions, coordinated projects, and led a 60-member team.",
+    'Minha trajetória combina engenharia de software, sistemas críticos e robótica. Hoje atuo no ecossistema de autenticação e identidade da Globo, desenvolvendo APIs e plataformas internas com diversas tecnologias. Antes, trabalhei no ecossistema de varejo e e-commerce no Grupo Profarma e, na MinervaBots, desenvolvi soluções embarcadas, coordenei projetos e liderei uma equipe de 60 membros.',
+  en: "My background combines software engineering, critical systems, and robotics. I currently work on Globo's authentication and identity ecosystem, developing APIs and internal platforms with various technologies. Previously, I worked on the retail and e-commerce ecosystem at Grupo Profarma and, at MinervaBots, developed embedded solutions, coordinated projects, and led a 60-member team.",
 }
 
 export const experiences: Array<{
@@ -145,7 +145,6 @@ export const projects = [
     links: [
       { label: 'GitHub', href: 'https://github.com/pvrosendo/kanban-flow' },
     ],
-    status: 'active',
   },
   {
     id: '2',
@@ -158,7 +157,6 @@ export const projects = [
     links: [
       { label: 'GitHub', href: 'https://github.com/pvrosendo/max-theme' },
     ],
-    status: 'active',
   },
   {
     id: '3',
@@ -176,15 +174,14 @@ export const projects = [
       'Canvas 2D',
     ],
     links: [{ label: 'site', href: 'https://learn-sharks.vercel.app/' }],
-    status: 'active',
   },
   {
     id: '4',
-    title: 'Portfolio & Blog v2',
+    title: 'O Códex - Blog',
     description: {
       'pt-BR':
-        'Segunda versão do site pessoal, reescrita em React com TanStack.',
-      en: 'Second version of the personal website, rewritten in React with TanStack.',
+        'Blog pessoal feito com React, TanStack e Tailwind CSS.',
+      en: 'Personal blog made with React, TanStack and Tailwind CSS.',
     },
     stack: ['React', 'TanStack', 'Tailwind CSS', 'TypeScript'],
     links: [
@@ -194,7 +191,6 @@ export const projects = [
       },
       { label: 'site', href: 'https://pvrosendo.is-a.dev/' },
     ],
-    status: 'active',
   },
   {
     id: '5',
@@ -211,7 +207,6 @@ export const projects = [
         href: 'https://github.com/pvrosendo/blog-and-portfolio',
       },
     ],
-    status: 'archived',
   },
   {
     id: '6',
@@ -228,7 +223,6 @@ export const projects = [
         href: 'https://github.com/pvrosendo/monitoracao-de-materiais',
       },
     ],
-    status: 'archived',
   },
   {
     id: '7',
@@ -241,6 +235,5 @@ export const projects = [
     links: [
       { label: 'GitHub', href: 'https://github.com/pvrosendo/wokwi-projects' },
     ],
-    status: 'archived',
   },
 ]
