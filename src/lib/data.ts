@@ -135,6 +135,23 @@ export const skills: Array<{ category: Localized; values: string }> = [
 export const projects = [
   {
     id: '1',
+    title: 'O Códex - Blog',
+    description: {
+      'pt-BR':
+        'Blog pessoal feito com React, TanStack e Tailwind CSS.',
+      en: 'Personal blog made with React, TanStack and Tailwind CSS.',
+    },
+    stack: ['React', 'TanStack', 'Tailwind CSS', 'TypeScript'],
+    links: [
+      {
+        label: 'GitHub',
+        href: 'https://github.com/pvrosendo/portfolio-project',
+      },
+      // { label: 'site', href: 'https://pvrosendo.is-a.dev/' },
+    ],
+  },
+  {
+    id: '2',
     title: 'Kanban Flow',
     description: {
       'pt-BR':
@@ -147,7 +164,7 @@ export const projects = [
     ],
   },
   {
-    id: '2',
+    id: '3',
     title: 'Max Theme',
     description: {
       'pt-BR': 'Tema para Obsidian inspirado na interface do chat Claude AI.',
@@ -159,7 +176,7 @@ export const projects = [
     ],
   },
   {
-    id: '3',
+    id: '4',
     title: 'Learn Sharks',
     description: {
       'pt-BR': 'Site interativo para descobrir mais sobre os tubarões.',
@@ -174,23 +191,6 @@ export const projects = [
       'Canvas 2D',
     ],
     links: [{ label: 'site', href: 'https://learn-sharks.vercel.app/' }],
-  },
-  {
-    id: '4',
-    title: 'O Códex - Blog',
-    description: {
-      'pt-BR':
-        'Blog pessoal feito com React, TanStack e Tailwind CSS.',
-      en: 'Personal blog made with React, TanStack and Tailwind CSS.',
-    },
-    stack: ['React', 'TanStack', 'Tailwind CSS', 'TypeScript'],
-    links: [
-      {
-        label: 'GitHub',
-        href: 'https://github.com/pvrosendo/portfolio-project',
-      },
-      { label: 'site', href: 'https://pvrosendo.is-a.dev/' },
-    ],
   },
   {
     id: '5',
