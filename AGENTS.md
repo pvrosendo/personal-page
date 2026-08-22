@@ -40,3 +40,4 @@
 
 - There are no tests or CI workflows configured. Do not claim a feature is complete without running the relevant `pnpm check`, `pnpm lint`, and `pnpm build` commands, plus manual responsive/locale/theme checks for UI changes.
 - TypeScript is strict about unused locals/parameters, emits no files, and uses `erasableSyntaxOnly`; formatting is Biome (2 spaces, single quotes in JS/TS, double quotes in JSX, no semicolons, trailing commas), and linting is Oxlint over `src`.
+- Architectural and UX decisions are recorded in `docs/adr/`; domain terms and layout vocabulary are recorded in `docs/glossary.md`.
