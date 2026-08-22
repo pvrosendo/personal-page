@@ -11,7 +11,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { ThemeProvider } from '@/hooks/use-theme'
-import { activateLocale, getLocale, i18n } from '@/lib/i18n'
+import { activateLocale, getBrowserLocaleParam, getLocale, i18n } from '@/lib/i18n'
 import { LandingPage } from '@/pages/landing'
 import { AboutPage } from '@/pages/about'
 import { ProjectsPage } from '@/pages/projects'
@@ -27,6 +27,11 @@ function RootLayout() {
       </I18nProvider>
     </ThemeProvider>
   )
+}
+
+function RootRedirect() {
+  const locale = getBrowserLocaleParam()
+  return <Navigate to="/$locale" params={{ locale }} replace />
 }
 
 function LocaleLayout() {
@@ -71,36 +76,58 @@ function LocaleLayout() {
 }
 
 const rootRoute = createRootRoute({ component: RootLayout })
+
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/',
-  component: () => (
-    <Navigate to="/$locale" params={{ locale: 'pt-br' }} replace />
-  ),
+  component: RootRedirect,
 })
+
 const localeRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/$locale',
   component: LocaleLayout,
 })
+
 const landingRoute = createRoute({
   getParentRoute: () => localeRoute,
   path: '/',
   component: LandingPage,
 })
-const aboutRoute = createRoute({
+
+// About: /sobre (PT-BR) and /about (EN)
+const aboutPtRoute = createRoute({
   getParentRoute: () => localeRoute,
   path: '/sobre',
   component: AboutPage,
 })
-const projectsRoute = createRoute({
+const aboutEnRoute = createRoute({
+  getParentRoute: () => localeRoute,
+  path: '/about',
+  component: AboutPage,
+})
+
+// Projects: /projetos (PT-BR) and /projects (EN)
+const projectsPtRoute = createRoute({
   getParentRoute: () => localeRoute,
   path: '/projetos',
   component: ProjectsPage,
 })
+const projectsEnRoute = createRoute({
+  getParentRoute: () => localeRoute,
+  path: '/projects',
+  component: ProjectsPage,
+})
+
 const routeTree = rootRoute.addChildren([
   indexRoute,
-  localeRoute.addChildren([landingRoute, aboutRoute, projectsRoute]),
+  localeRoute.addChildren([
+    landingRoute,
+    aboutPtRoute,
+    aboutEnRoute,
+    projectsPtRoute,
+    projectsEnRoute,
+  ]),
 ])
 
 export const router = createRouter({
@@ -108,8 +135,10 @@ export const router = createRouter({
   scrollRestoration: true,
   defaultPreload: 'intent',
 })
+
 declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router
   }
 }
+

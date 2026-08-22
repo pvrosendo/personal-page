@@ -7,10 +7,13 @@ export type Locale = (typeof locales)[number]
 
 export const copy = {
   'pt-BR': {
+    slugAbout: 'sobre',
+    slugProjects: 'projetos',
     navAbout: 'Sobre',
     navProjects: 'Projetos',
     developer: 'Software Developer',
-    tagline: 'Desenvolvedor de software movido pela curiosidade em entender como as coisas funcionam.',
+    tagline:
+      'Desenvolvedor de software movido pela curiosidade em entender como as coisas funcionam.',
     viewProjects: 'Projetos',
     readAbout: 'Sobre',
     aboutEyebrow: '// SOBRE',
@@ -29,6 +32,8 @@ export const copy = {
     theme: 'Alternar tema',
   },
   en: {
+    slugAbout: 'about',
+    slugProjects: 'projects',
     navAbout: 'About',
     navProjects: 'Projects',
     developer: 'Software Developer',
@@ -52,6 +57,31 @@ export const copy = {
   },
 } as const
 
+/** Canonical page key → localized slug per locale */
+export const localizedPaths = {
+  about: { 'pt-BR': 'sobre', en: 'about' },
+  projects: { 'pt-BR': 'projetos', en: 'projects' },
+} as const
+
+export type PageKey = keyof typeof localizedPaths
+
+/** Given any slug (any locale), returns its canonical page key, or null (home). */
+export function getPageKey(slug: string): PageKey | null {
+  for (const [key, paths] of Object.entries(localizedPaths)) {
+    if ((Object.values(paths) as string[]).includes(slug)) return key as PageKey
+  }
+  return null
+}
+
+/** Detects the user's preferred browser locale and returns the URL param format. */
+export function getBrowserLocaleParam(): 'en' | 'pt-br' {
+  const lang =
+    typeof navigator !== 'undefined'
+      ? (navigator.language || navigator.languages?.[0] || '')
+      : ''
+  return lang.toLowerCase().startsWith('en') ? 'en' : 'pt-br'
+}
+
 export function activateLocale(locale: Locale) {
   i18n.load(locale, copy[locale])
   i18n.activate(locale)
@@ -63,3 +93,4 @@ export function getLocale(value: string): Locale {
 }
 
 activateLocale('pt-BR')
+

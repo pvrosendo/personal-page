@@ -20,22 +20,35 @@ export function LandingPage() {
           <h1 className="mx-auto max-w-3xl font-display text-[clamp(3.25rem,10vw,8.5rem)] font-semibold leading-[0.84] tracking-[-0.09em] md:mx-0">
             Paulo Vitor
             <br />
-          <span className="text-muted-foreground/70">Rosendo</span>
+            <span className="text-muted-foreground/70">Rosendo</span>
           </h1>
           <p className="mx-auto mt-8 max-w-md text-base leading-relaxed text-muted-foreground md:mx-0 md:mt-9 md:text-lg">
             {text.tagline}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3 md:mt-9 md:justify-start">
             <Button asChild>
-              <Link to="/$locale/projetos" params={{ locale: param }}>
-                {text.viewProjects}
-                <ArrowUpRight size={16} />
-              </Link>
+              {locale === 'en' ? (
+                <Link to="/$locale/projects" params={{ locale: 'en' }}>
+                  {text.viewProjects}
+                  <ArrowUpRight size={16} />
+                </Link>
+              ) : (
+                <Link to="/$locale/projetos" params={{ locale: param }}>
+                  {text.viewProjects}
+                  <ArrowUpRight size={16} />
+                </Link>
+              )}
             </Button>
             <Button variant="outline" asChild>
-              <Link to="/$locale/sobre" params={{ locale: param }}>
-                {text.readAbout}
-              </Link>
+              {locale === 'en' ? (
+                <Link to="/$locale/about" params={{ locale: 'en' }}>
+                  {text.readAbout}
+                </Link>
+              ) : (
+                <Link to="/$locale/sobre" params={{ locale: param }}>
+                  {text.readAbout}
+                </Link>
+              )}
             </Button>
           </div>
         </div>
@@ -48,3 +61,4 @@ export function LandingPage() {
     </section>
   )
 }
+

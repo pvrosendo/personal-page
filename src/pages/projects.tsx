@@ -5,9 +5,10 @@ import { copy, getLocale } from '@/lib/i18n'
 import { projects } from '@/lib/data'
 
 export function ProjectsPage() {
-  const { locale: value } = useParams({ from: '/$locale/projetos' })
+  const { locale: value } = useParams({ strict: false }) as { locale: string }
   const locale = getLocale(value)
   const text = copy[locale]
+
   return (
     <article className="page-enter mx-auto max-w-5xl px-6 py-12 pb-20">
       <SectionHeading

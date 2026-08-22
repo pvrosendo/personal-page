@@ -6,9 +6,10 @@ import { education, experiences, profile, skills } from '@/lib/data'
 import photo2 from '@/assets/photo2.jpg'
 
 export function AboutPage() {
-  const { locale: value } = useParams({ from: '/$locale/sobre' })
+  const { locale: value } = useParams({ strict: false }) as { locale: string }
   const locale = getLocale(value)
   const text = copy[locale]
+
   return (
     <article className="page-enter mx-auto max-w-3xl px-6 py-12 pb-20">
       <SectionHeading eyebrow={text.aboutEyebrow} title={text.navAbout} />
