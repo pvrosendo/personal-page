@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { I18nProvider } from '@lingui/react'
+import { Analytics } from '@vercel/analytics/react'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { ThemeProvider } from '@/hooks/use-theme'
@@ -22,6 +23,7 @@ function RootLayout() {
         <div className="flex min-h-svh flex-col">
           <Outlet />
         </div>
+        <Analytics />
       </I18nProvider>
     </ThemeProvider>
   )
