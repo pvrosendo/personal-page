@@ -69,13 +69,6 @@ export function AboutPage() {
           </strong>
         </p>
       </section>
-      <a
-        href={`mailto:${site.email}`}
-        className="mt-16 inline-flex items-center gap-2 text-sm text-witcher transition-colors hover:text-biolum"
-      >
-        <Mail size={16} />
-        {text.contact}
-      </a>
     </article>
   )
 }
