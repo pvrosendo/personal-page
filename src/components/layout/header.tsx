@@ -17,8 +17,8 @@ export function Header() {
     `/${other === 'en' ? 'en' : 'pt-br'}`,
   )
   return (
-    <header className="fixed inset-x-0 top-0 z-20 px-5 py-5 md:px-8">
-      <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-border/70 bg-background/75 px-4 py-2.5 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-20 w-full border-b border-border/70 bg-background/80 px-5 py-4 backdrop-blur-md md:px-8">
+      <div className="flex w-full items-center justify-between">
         <nav
           className="flex items-center gap-5"
           aria-label="Navegação principal"
@@ -49,7 +49,7 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             to={otherPath}
-            className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-biolum"
+            className="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-biolum"
           >
             {locale === 'en' ? 'PT' : 'EN'}
           </Link>

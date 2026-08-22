@@ -60,7 +60,7 @@ function LocaleLayout() {
   return (
     <>
       <Header />
-      <main className="flex-1 pt-24">
+      <main className="flex min-h-0 flex-1 flex-col pt-24">
         <Outlet />
       </main>
       <Footer />
