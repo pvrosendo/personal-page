@@ -3,6 +3,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { PortraitPhoto } from '@/components/portrait-photo'
 import { copy, getLocale } from '@/lib/i18n'
+import { site } from '@/lib/site'
 import photo1 from '@/assets/photo1.webp'
 
 export function LandingPage() {
@@ -51,6 +52,15 @@ export function LandingPage() {
               )}
             </Button>
           </div>
+          <a
+            href={site.blog}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-witcher md:mt-6"
+          >
+            {text.visitBlog}
+            <ArrowUpRight size={13} />
+          </a>
         </div>
         <PortraitPhoto
           src={photo1}

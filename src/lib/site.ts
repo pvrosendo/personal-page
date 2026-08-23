@@ -3,4 +3,5 @@ export const site = {
   email: 'paulovitor.rsd@gmail.com',
   github: 'https://github.com/pvrosendo',
   linkedin: 'https://www.linkedin.com/in/paulo-vitor-rosendo/',
+  blog: 'https://blog.pvrosendo.is-a.dev/',
 }

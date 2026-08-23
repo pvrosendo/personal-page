@@ -1,4 +1,4 @@
-import { Code2, BriefcaseBusiness, Mail } from 'lucide-react'
+import { Code2, BriefcaseBusiness, Mail, BookOpen } from 'lucide-react'
 import { site } from '@/lib/site'
 import { copy, getLocale } from '@/lib/i18n'
 import { useParams } from '@tanstack/react-router'
@@ -11,6 +11,15 @@ export function Footer() {
       <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <span>{labels.footer}</span>
         <div className="flex items-center gap-4">
+          <a
+            aria-label={labels.blog}
+            href={site.blog}
+            target="_blank"
+            rel="noreferrer"
+            className="transition-colors hover:text-witcher"
+          >
+            <BookOpen size={16} />
+          </a>
           <a
             aria-label="GitHub"
             href={site.github}
