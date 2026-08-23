@@ -138,33 +138,46 @@ export const projects = [
     title: 'O Códex - Blog',
     description: {
       'pt-BR':
-        'Blog pessoal feito com React, TanStack e Tailwind CSS.',
-      en: 'Personal blog made with React, TanStack and Tailwind CSS.',
+        'Blog pessoal feito com temática única juntando Tubarões, The Witcher e Computação.',
+      en: 'Personal blog made with a unique theme combining Sharks, The Witcher and Computing.',
     },
-    stack: ['React', 'TanStack', 'Tailwind CSS', 'TypeScript'],
+    stack: ['React',  'TypeScript', 'TanStack', 'Tailwind CSS', 'i18next'],
     links: [
       {
         label: 'GitHub',
-        href: 'https://github.com/pvrosendo/portfolio-project',
+        href: 'https://github.com/pvrosendo/codex-project',
       },
-      // { label: 'site', href: 'https://pvrosendo.is-a.dev/' },
+      { label: 'site', href: 'https://blog.pvrosendo.is-a.dev' },
     ],
   },
   {
     id: '2',
+    title: 'Portfolio',
+    description: {
+      'pt-BR': 'Este proprio site. Feito visando minimalismo, performance e profissionalismo.',
+      en: 'This very site. Built with a focus on minimalism, performance, and professionalism.',
+    },
+    stack: ['React', 'TypeScript', 'Vite SPA', 'Tailwind CSS', 'LinguiJS'],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/pvrosendo/personal-page' },
+      { label: 'site', href: 'https://pvrosendo.is-a.dev/' },
+    ],
+  },
+  {
+    id: '3',
     title: 'Kanban Flow',
     description: {
       'pt-BR':
         'Plugin de kanban para Obsidian criado para melhorar a experiência e o uso de quadros kanban.',
       en: 'Obsidian kanban plugin created to improve the experience and use of kanban boards.',
     },
-    stack: ['TypeScript', 'Obsidian', 'Kanban'],
+    stack: ['TypeScript', 'CSS', 'Obsidian', 'Kanban'],
     links: [
       { label: 'GitHub', href: 'https://github.com/pvrosendo/kanban-flow' },
     ],
   },
   {
-    id: '3',
+    id: '4',
     title: 'Max Theme',
     description: {
       'pt-BR': 'Tema para Obsidian inspirado na interface do chat Claude AI.',
@@ -176,7 +189,7 @@ export const projects = [
     ],
   },
   {
-    id: '4',
+    id: '5',
     title: 'Learn Sharks',
     description: {
       'pt-BR': 'Site interativo para descobrir mais sobre os tubarões.',
@@ -193,7 +206,7 @@ export const projects = [
     links: [{ label: 'site', href: 'https://learn-sharks.vercel.app/' }],
   },
   {
-    id: '5',
+    id: '6',
     title: 'Portfolio & Blog v1',
     description: {
       'pt-BR':
@@ -209,14 +222,14 @@ export const projects = [
     ],
   },
   {
-    id: '6',
+    id: '7',
     title: 'Materials Visor',
     description: {
       'pt-BR':
         'Projeto de monitoramento do envelhecimento de materiais por meio de quadros artísticos.',
       en: 'Material aging monitoring project using artistic panels.',
     },
-    stack: ['C++', 'ESP32', 'Arduino', 'Arduino Framework'],
+    stack: ['C++', 'ESP32', 'Arduino'],
     links: [
       {
         label: 'GitHub',
@@ -225,7 +238,7 @@ export const projects = [
     ],
   },
   {
-    id: '7',
+    id: '8',
     title: 'Wokwi ESP32 Projects',
     description: {
       'pt-BR': 'Simulações de projetos ESP32 no Wokwi.',
