@@ -41,12 +41,12 @@ function LocaleLayout() {
     activateLocale(active)
     document.title =
       active === 'en'
-        ? 'Paulo Vitor Rosendo — Software Developer'
-        : 'Paulo Vitor Rosendo — Desenvolvedor de Software'
+        ? 'Paulo Vitor Rosendo — Software Engineer'
+        : 'Paulo Vitor Rosendo — Engenheiro de Software'
     const description =
       active === 'en'
-        ? 'Software developer building robust, well-designed solutions.'
-        : 'Desenvolvedor de software construindo soluções robustas e bem projetadas.'
+        ? 'Software engineer building robust, well-designed solutions.'
+        : 'Engenheiro de software construindo soluções robustas e bem projetadas.'
     let meta = document.querySelector('meta[name="description"]')
     if (!meta) {
       meta = document.createElement('meta')

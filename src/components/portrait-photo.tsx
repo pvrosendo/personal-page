@@ -11,7 +11,7 @@ export function PortraitPhoto({
 }: PortraitPhotoProps) {
   return (
     <div
-      className={`relative aspect-[4/5] overflow-hidden rounded-[14px] border border-border bg-card ${className}`}
+      className={`relative aspect-4/5 overflow-hidden rounded-[14px] border border-border bg-card ${className}`}
     >
       <img src={src} alt={alt} className="size-full object-cover" />
       <div className="pointer-events-none absolute inset-3 border border-witcher/30" />

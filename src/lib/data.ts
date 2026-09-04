@@ -124,11 +124,11 @@ export const skills: Array<{ category: Localized; values: string }> = [
   },
   {
     category: { 'pt-BR': 'Ferramentas', en: 'Tools' },
-    values: 'Git · Linux · Docker · Grafana · GCP',
+    values: 'Git · Docker · Grafana · GCP',
   },
   {
     category: { 'pt-BR': 'Embarcados', en: 'Embedded' },
-    values: 'ESP32 · Arduino · Jetson Nano',
+    values: 'ESP32 · Arduino · Jetson',
   },
 ]
 
@@ -141,7 +141,7 @@ export const projects = [
         'Blog pessoal feito com temática única juntando Tubarões, The Witcher e Computação.',
       en: 'Personal blog made with a unique theme combining Sharks, The Witcher and Computing.',
     },
-    stack: ['React',  'TypeScript', 'TanStack', 'Tailwind CSS', 'i18next'],
+    stack: ['React',  'TypeScript', 'TanStack', 'Tailwind', 'i18next'],
     links: [
       {
         label: 'GitHub',
@@ -157,7 +157,7 @@ export const projects = [
       'pt-BR': 'Este proprio site. Feito visando minimalismo, performance e profissionalismo.',
       en: 'This very site. Built with a focus on minimalism, performance, and professionalism.',
     },
-    stack: ['React', 'TypeScript', 'Vite SPA', 'Tailwind CSS', 'LinguiJS'],
+    stack: ['React', 'TypeScript', 'Vite SPA', 'Tailwind', 'LinguiJS'],
     links: [
       { label: 'GitHub', href: 'https://github.com/pvrosendo/personal-page' },
       { label: 'site', href: 'https://pvrosendo.is-a.dev/' },
@@ -198,7 +198,7 @@ export const projects = [
     stack: [
       'React',
       'Next.js',
-      'Tailwind CSS',
+      'Tailwind',
       'TypeScript',
       'GSAP',
       'Canvas 2D',

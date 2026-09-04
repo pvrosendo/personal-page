@@ -16,7 +16,7 @@ export function LandingPage() {
       <div className="mx-auto grid w-full max-w-6xl items-center gap-8 text-center md:grid-cols-[minmax(0,1fr)_320px] md:gap-14 md:text-left lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-24">
         <div>
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-muted-foreground md:mb-6">
-            {text.developer}
+            {text.engineer}
           </p>
           <h1 className="mx-auto max-w-3xl font-display text-[clamp(3.25rem,10vw,8.5rem)] font-semibold leading-[0.84] tracking-[-0.09em] md:mx-0">
             Paulo Vitor
@@ -65,7 +65,7 @@ export function LandingPage() {
         <PortraitPhoto
           src={photo1}
           alt="Paulo Vitor Rosendo"
-          className="mx-auto hidden w-full max-w-[360px] md:block"
+          className="mx-auto hidden w-full max-w-90 md:block"
         />
       </div>
     </section>

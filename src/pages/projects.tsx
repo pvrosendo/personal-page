@@ -39,7 +39,7 @@ function ProjectRow({
   index: number
 }) {
   return (
-    <article className="group grid gap-4 border-b border-border px-1 py-6 transition-colors last:border-b-0 hover:bg-foreground/[0.02] md:grid-cols-[3rem_minmax(0,1fr)_auto] md:items-start md:gap-6 md:px-3">
+    <article className="group grid gap-4 border-b border-border px-1 py-6 transition-colors last:border-b-0 hover:bg-foreground/2 md:grid-cols-[3rem_minmax(0,1fr)_auto] md:items-start md:gap-6 md:px-3">
       <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground">
         {String(index + 1).padStart(2, '0')}
       </span>

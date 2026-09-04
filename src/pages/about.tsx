@@ -121,7 +121,7 @@ function ExperienceGroup({
 }) {
   return (
     <div className="relative pb-8 last:pb-0">
-      <span className="absolute -left-[calc(1.75rem+5px)] top-1.5 size-2.5 rounded-full border-2 border-background bg-witcher" />
+      <span className="absolute -left-8.25 top-1.5 size-2.5 rounded-full border-2 border-background bg-witcher" />
       <h3 className="font-display text-lg font-semibold tracking-tight">
         {company}
       </h3>
@@ -157,7 +157,7 @@ function TimelineItem({
 }) {
   return (
     <div className="relative pb-8 last:pb-0">
-      <span className="absolute -left-[calc(1.75rem+5px)] top-1.5 size-2.5 rounded-full border-2 border-background bg-witcher" />
+      <span className="absolute -left-8.25 top-1.5 size-2.5 rounded-full border-2 border-background bg-witcher" />
       <h3 className="font-display text-lg font-semibold tracking-tight">
         {company}
       </h3>

@@ -1,49 +1,111 @@
 # Repository Guide
 
-## Direction
+## Project
 
-- This portfolio is actively being migrated toward the implementation plan below. Treat the plan as the project objective, not the current scaffold as the design authority; when they conflict, implement the planned target incrementally.
-- It is a single-package React 19 + Vite SPA using TanStack Router file-based routing, Tailwind CSS v4, Radix/shadcn-style UI, Lucide, LinguiJS, and self-hosted variable fonts.
-- The visual target is a restrained editorial portfolio: Witcher gold and bioluminescent green accents, OKLCH design tokens, Space Grotesk/Instrument Sans/JetBrains Mono typography, responsive layouts, subtle motion, and no heavy decorative effects or shadows.
+Single-package React 19 + Vite SPA. Bilingual (pt-BR / en) personal portfolio using TanStack Router, Tailwind CSS v4, Radix/shadcn-style UI, Lucide, LinguiJS, and self-hosted variable fonts. Deployed to Vercel.
 
 ## Commands
 
-- Use `pnpm` and keep `pnpm-lock.yaml` authoritative; install with `pnpm install`.
-- Run the dev server on port 3000 with `pnpm dev`.
-- Validate in order with `pnpm check`, then `pnpm lint`, then `pnpm build`. `check` runs `tsc -b`; `build` runs it again before `vite build`.
-- Use `pnpm format` for Biome formatting; it writes changes across the repository. There is no configured test suite, so focused typecheck/lint/build verification is the available automated check.
-- The target workflow includes `pnpm i18n:extract` after changing `<Trans>`/Lingui messages or catalog source text.
+- Use `pnpm`. Keep `pnpm-lock.yaml` authoritative; install with `pnpm install`.
+- Dev server runs on port 3000: `pnpm dev`.
+- Validate in order: `pnpm check` (tsc -b) → `pnpm lint` (oxlint src) → `pnpm build` (tsc -b + vite build).
+- Format with `pnpm format` (Biome, writes in place).
+- Lighthouse audits must use `pnpm build && pnpm preview` — never the dev server.
+- No test suite is configured.
 
-## Target Architecture
+## Repository Layout
 
-- `src/main.tsx` is the browser entrypoint. Move routing from the current hand-built tree in `src/router.tsx` toward generated file-based routes under `src/routes/`, with `__root.tsx`, locale layouts, localized 404, and code-split route chunks.
-- Target routes are `/` (language-aware redirect), `/:locale`, `/:locale/sobre`, and `/:locale/projetos`; only `pt-br` and `en` are valid locale values, with invalid values going to a localized 404.
-- Load Lingui catalogs dynamically when the locale changes so each locale is a separate chunk. UI chrome uses Lingui `<Trans>`/macros and `.po` catalogs; portfolio content is not catalog text.
-- Keep projects, experience, and education as typed locale-aware data files under `src/lib/data/` (`projects.ts`, `experience.ts`, `education.ts`), rather than one monolithic data file or translated catalog entries.
-- Shared layout/components belong under `src/components/`; page components belong with their routes. Keep `src/lib/site.ts` as the source for name, email, social URLs, and handle.
+```
+personal-page/
+├── public/                  # Static assets served at root
+│   ├── favicon.ico / favicon-*.png / apple-touch-icon.png / icon-*.png
+│   ├── site.webmanifest
+│   ├── robots.txt
+│   └── llms.txt
+├── src/
+│   ├── main.tsx             # Browser entrypoint
+│   ├── router.tsx           # TanStack Router tree + RootLayout + Analytics
+│   ├── styles.css           # Tailwind v4 @theme, OKLCH tokens, dark variant, View Transitions
+│   ├── assets/              # Vite-imported static resources
+│   ├── components/
+│   │   ├── layout/
+│   │   │   ├── header.tsx   # Global nav, locale and theme switchers
+│   │   │   └── footer.tsx
+│   │   └── ui/
+│   │       ├── animated-theme-toggler.tsx  # Local copy of Magic UI (controlled mode)
+│   │       ├── badge.tsx
+│   │       └── button.tsx
+│   ├── hooks/
+│   │   └── use-theme.tsx    # ThemeProvider + useTheme
+│   ├── lib/
+│   │   ├── data.ts          # Profile, experiences, education, projects (locale-aware)
+│   │   ├── i18n.ts          # LinguiJS bootstrap, static copy object, localizedPaths, helpers
+│   │   ├── site.ts          # Canonical name, email, social URLs
+│   │   └── utils.ts         # cn() (clsx + tailwind-merge)
+│   └── pages/
+│       ├── landing.tsx      # /:locale
+│       ├── about.tsx        # /:locale/sobre and /:locale/about
+│       └── projects.tsx     # /:locale/projetos and /:locale/projects
+├── docs/
+│   ├── adr/                 # Architectural Decision Records (ADR 0001–0004)
+│   └── glossary.md
+├── index.html               # HTML entrypoint + anti-FOUC inline script
+├── vercel.json              # SPA rewrite: /* → /index.html
+├── lingui.config.ts         # LinguiJS config (catalogs not yet wired)
+├── biome.json
+├── .oxlintrc.json
+└── vite.config.ts
+```
 
-## Theme And UI
+## Routing
 
-- `src/styles.css` is the source for Tailwind v4 `@theme`, custom dark variant, OKLCH tokens, fonts, global reduced-motion rules, and View Transitions CSS. Do not introduce a separate Tailwind config unless the migration requires it.
-- Theme state is centralized in `ThemeProvider`/`useTheme`: system preference is the default, `localStorage` persists the choice, `.dark` is applied to `<html>`, and `index.html` contains the anti-FOUC inline script.
-- The Magic UI `AnimatedThemeToggler` is copied into `src/components/ui/`, used in controlled mode with `useTheme`, and remains repository-owned. Preserve its native fallback and add a `prefers-reduced-motion` guard before `startViewTransition`.
-- Use the `@/*` alias for `src` imports. Follow the existing shadcn aliases in `components.json`; add only the UI primitives needed by the plan.
+Routes are registered as a hand-built tree in `src/router.tsx`. No file-based routing under `src/routes/` exists.
 
-## Implementation Priorities
+| Path | Component |
+|---|---|
+| `/` | Locale redirect via `navigator.language` |
+| `/:locale` | `LandingPage` |
+| `/:locale/sobre` | `AboutPage` (pt-BR slug) |
+| `/:locale/about` | `AboutPage` (en slug) |
+| `/:locale/projetos` | `ProjectsPage` (pt-BR slug) |
+| `/:locale/projects` | `ProjectsPage` (en slug) |
 
-- Complete the migration in order: scaffold/tooling, design tokens/theme, file-based routing/i18n/shell, landing, about/timelines, projects/cards, motion/accessibility, then SEO/build/deploy preparation.
-- Keep responsive behavior and accessibility part of each phase: semantic landmarks and heading hierarchy, keyboard-visible focus rings, icon-link labels, reactive `html[lang]`, reduced-motion handling, and no horizontal/vertical overflow at supported breakpoints.
-- SEO is client-side: update title, description, canonical, Open Graph/Twitter metadata, locale alternates, and static `hreflang`; final deploys need an SPA rewrite from `/*` to `/index.html`.
-- Public deployment assets belong in `public/` (favicon, placeholder `og-image.png`, `robots.txt`, and static sitemap). Document the rewrite setup and content editing workflow in `README.md`.
+Valid locale param values: `pt-br`, `en`. Unrecognised paths fall through without a localised 404.
 
-## Verification
+## Localization
 
-- There are no tests or CI workflows configured. Do not claim a feature is complete without running the relevant `pnpm check`, `pnpm lint`, and `pnpm build` commands, plus manual responsive/locale/theme checks for UI changes.
-- Run Lighthouse against a production-like server with `pnpm build` followed by `pnpm preview`; do not use the Vite dev server for performance conclusions because its HMR client and development dependencies distort payload and timing results.
-- TypeScript is strict about unused locals/parameters, emits no files, and uses `erasableSyntaxOnly`; formatting is Biome (2 spaces, single quotes in JS/TS, double quotes in JSX, no semicolons, trailing commas), and linting is Oxlint over `src`.
+- **UI copy**: static `copy` object in `src/lib/i18n.ts`, keyed by locale (`'pt-BR'` / `'en'`). Accessed via `i18n._` after `activateLocale()`.
+- **Editorial content**: `src/lib/data.ts` exports typed objects (`profile`, `experiences`, `education`, `projects`) as `Record<Locale, string>`, selected at render time by the active locale.
+- **Slug mapping**: `localizedPaths` in `src/lib/i18n.ts` maps canonical page keys (`about`, `projects`) to their per-locale slugs. The header uses this to build nav links.
+- LinguiJS is installed and configured in `lingui.config.ts` for a future catalog migration. `.po` catalogs do not exist yet. `pnpm i18n:extract` is not wired in `package.json`.
 
-## Documentation Workflow
+## Theme
 
-- Architectural, UX, visual, content-model, and localization decisions made during implementation must be recorded in `docs/adr/` in the same change; update an existing ADR when the decision evolves instead of creating redundant documentation.
-- Add or update terms in `docs/glossary.md` when a decision introduces project-specific domain or layout vocabulary.
-- Documentation is part of the implementation, not an optional follow-up: an agent must update the relevant ADR/glossary before reporting the change complete.
+- `ThemeProvider`/`useTheme` in `src/hooks/use-theme.tsx` is the single source of theme state.
+- Default: system preference (`prefers-color-scheme`). Persisted in `localStorage`. Applied as `.dark` on `<html>`.
+- Anti-FOUC inline script lives in `index.html`.
+- `AnimatedThemeToggler` is a repository-owned copy from Magic UI, used in controlled mode. It guards `startViewTransition` with `prefers-reduced-motion`.
+
+## Styling Rules
+
+- `src/styles.css` owns all Tailwind v4 `@theme` tokens, the custom `.dark` variant, OKLCH colour tokens, font declarations, global reduced-motion rules, and View Transitions CSS. Do not add a separate Tailwind config.
+- Use the `@/*` alias for all `src/` imports. Follow the existing shadcn aliases in `components.json`.
+- OKLCH tokens use the `witcher` (gold) and `biolum` (green) accent vocabulary. Shadows and heavy decorative effects are not part of the design.
+
+## Code Quality
+
+- TypeScript: strict, `erasableSyntaxOnly`, no emit, unused locals/parameters are errors.
+- Formatting: Biome — 2 spaces, single quotes in JS/TS, double quotes in JSX, no semicolons, trailing commas.
+- Linting: Oxlint over `src/`.
+- Verification order: `pnpm check` → `pnpm lint` → `pnpm build`. Do not claim a change is complete without passing all three.
+
+## Documentation Rules
+
+- Every architectural, UX, visual, content-model, or localization decision must be recorded in `docs/adr/` in the same commit. Update an existing ADR when a decision evolves — do not create redundant files.
+- Add or update terms in `docs/glossary.md` when a change introduces project-specific vocabulary.
+- Keep `README.md` in sync with the actual file layout, routes, and stack whenever they change.
+- Documentation is part of the implementation, not an optional follow-up.
+
+## Deploy
+
+`vercel.json` rewrites all unmatched paths to `/index.html` so TanStack Router handles navigation client-side. Direct URL access and page refresh on locale routes work without a 404. The absolute URLs in `public/llms.txt` must be updated if the deployment hostname changes.
